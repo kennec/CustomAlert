@@ -86,7 +86,11 @@
 - (void)btnPressed {
     alert = [[CustomAlert alloc] initWithData:self.alertDictionary delegate:self];
     //alert = [[CustomAlert alloc] initWithTitle:@"This object only has content in English." message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitle:@"Play"];
-    [alert showInView:self.view];
+    UIWindow* window = [UIApplication sharedApplication].keyWindow;
+    if (!window) {
+        window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    }
+    [window addSubview:alert];
 }
 // END CUSTOM ALERT IMPLEMENTATION
 
