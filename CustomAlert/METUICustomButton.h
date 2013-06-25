@@ -17,7 +17,10 @@
               withImage:(UIImage *)image
          withBackground:(NSString *)bgImage
               showTouch:(BOOL)showTouch
-             touchImage:(NSString *)touchImage;
+             touchImage:(NSString *)touchImage
+              textAlign:(NSString *)textAlign
+             textOffset:(float)textOffset;
+
 +(UIColor *)colorForString:(NSString *)namedColor withAlpha:(float )alphaValue;
 +(UIColor *)colorForHex:(NSString *)hexColor;
 +(UIColor *)colorForHex:(NSString *)hexColor withAlpha:(float )alphaValue;

@@ -107,7 +107,7 @@
         }
         
         CGRect OtherBtnFrame = CGRectMake(text_offest, alert_height, text_width, 60);
-        UIButton *otherBtn = [METUICustomButton makeButton:NSLocalizedString(otherButtonTitle, otherButtonTitle) withFrame:OtherBtnFrame withColor:nil withImageStr:nil withImage:nil withBackground:@"prompt-button-green.png" showTouch:FALSE touchImage:nil];
+        UIButton *otherBtn = [METUICustomButton makeButton:NSLocalizedString(otherButtonTitle, otherButtonTitle) withFrame:OtherBtnFrame withColor:nil withImageStr:nil withImage:nil withBackground:@"prompt-button-green.png" showTouch:FALSE touchImage:nil textAlign:@"Center" textOffset:0];
         [otherBtn setTag:1001];
         [otherBtn addTarget:self action:@selector(buttonTouchDown:) forControlEvents:UIControlEventTouchDown];
         [otherBtn addTarget:self action:@selector(buttonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -119,7 +119,7 @@
         
         // CANCEL BUTTON
         CGRect btnFrame = CGRectMake(text_offest, alert_height, text_width, 60);
-        UIButton *cancelBtn = [METUICustomButton makeButton:NSLocalizedString(cancelButtonTitle, cancelButtonTitle) withFrame:btnFrame withColor:nil withImageStr:nil withImage:nil withBackground:@"prompt-button-grey.png" showTouch:FALSE touchImage:nil];
+        UIButton *cancelBtn = [METUICustomButton makeButton:NSLocalizedString(cancelButtonTitle, cancelButtonTitle) withFrame:btnFrame withColor:nil withImageStr:nil withImage:nil withBackground:@"prompt-button-grey.png" showTouch:FALSE touchImage:nil textAlign:@"Center" textOffset:0];
         [cancelBtn setTag:1000];
         [cancelBtn addTarget:self action:@selector(buttonTouchDown:) forControlEvents:UIControlEventTouchDown];
         [cancelBtn addTarget:self action:@selector(buttonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
@@ -281,25 +281,19 @@
             
             CGRect btnFrame = CGRectMake(text_offest, alert_height, text_width, sizeRef);
 
-            UIButton *button = [METUICustomButton makeButton:[
-                                                              [buttonsDictionary objectForKey:key]
-                                                              valueForKey:@"Name"]
+            UIButton *button = [METUICustomButton makeButton:[[buttonsDictionary objectForKey:key] valueForKey:@"Name"]
                                                    withFrame:btnFrame
-                                                   withColor:[
-                                                              [buttonsDictionary objectForKey:key]
-                                                              valueForKey:@"Color"]
-                                                withImageStr:[
-                                                              [buttonsDictionary objectForKey:key]
-                                                              valueForKey:@"Icon Image"]
+                                                   withColor:[[buttonsDictionary objectForKey:key] valueForKey:@"Color"]
+                                                withImageStr:[[buttonsDictionary objectForKey:key] valueForKey:@"Icon Image"]
                                                    withImage:nil
-                                              withBackground:[
-                                                              [buttonsDictionary objectForKey:key]
-                                                              valueForKey:@"Background Image"]
+                                              withBackground:[[buttonsDictionary objectForKey:key] valueForKey:@"Background Image"]
                                                    showTouch:NO
-                                                  touchImage:[
-                                                              [buttonsDictionary objectForKey:key]
-                                                              valueForKey:@"Highlight Image"]
+                                                  touchImage:[[buttonsDictionary objectForKey:key] valueForKey:@"Highlight Image"]
+                                                   textAlign:[[buttonsDictionary objectForKey:key] valueForKey:@"Text Alignment"]
+                                                  textOffset:[[[buttonsDictionary objectForKey:key] valueForKey:@"Text Offset"] floatValue]
+
                                 ];
+            
             [button setTag:[[[buttonsDictionary objectForKey:key] valueForKey:@"Button Tag"] floatValue]];
             [button addTarget:self action:@selector(buttonTouchDown:) forControlEvents:UIControlEventTouchDown];
             [button addTarget:self action:@selector(buttonTouchUp:) forControlEvents:UIControlEventTouchUpInside];

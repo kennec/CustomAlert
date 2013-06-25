@@ -40,6 +40,8 @@ Would you like to continue?</string>
 			<string>prompt-button-green-hi.png</string>
 			<key>Button Tag</key>
 			<string>1001</string>
+			<key>Text Alignment</key>
+			<string>Center</string>
 		</dict>
 		<key>Cancel</key>
 		<dict>
@@ -51,6 +53,8 @@ Would you like to continue?</string>
 			<string>prompt-button-grey-hi.png</string>
 			<key>Button Tag</key>
 			<string>1000</string>
+			<key>Text Alignment</key>
+			<string>Center</string>
 		</dict>
 	</dict>
 </dict>

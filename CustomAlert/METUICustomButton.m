@@ -10,8 +10,8 @@
 
 @implementation METUICustomButton
 
-+(UIButton *)makeButton:(NSString *)buttonName withFrame:(CGRect)frameSize withColor:(NSString *)colorName withImageStr:(NSString *)imageName withImage:(UIImage *)image withBackground:(NSString *)bgImage showTouch:(BOOL)showsTouch touchImage:(NSString *)touchImage {
-
++(UIButton *)makeButton:(NSString *)buttonName withFrame:(CGRect)frameSize withColor:(NSString *)colorName withImageStr:(NSString *)imageName withImage:(UIImage *)image withBackground:(NSString *)bgImage showTouch:(BOOL)showsTouch touchImage:(NSString *)touchImage textAlign:(NSString *)textAlign textOffset:(float)textOffset {
+    NSLog(@"%@", textAlign);
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     
     // BUTTON TITLE
@@ -35,26 +35,34 @@
             // REMOVE HARDCODED
         } else if (image) {
             [button setImage:image forState:UIControlStateNormal];
+            button.imageEdgeInsets = UIEdgeInsetsMake(0.0, 10.0, 0.0, 0.0);
         }
-       //button.imageEdgeInsets = UIEdgeInsetsMake(0.0, 0, 0.0, 0.0);
         
         // REMOVE HARDCODED
-        // CHANGED FOR ALERT!
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        if ([@"center" caseInsensitiveCompare:textAlign] == NSOrderedSame ) {
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        } else if ([@"right" caseInsensitiveCompare:textAlign] == NSOrderedSame ) {
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        } else {
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        }
         
         // ADJUST TITLE PLACEMENT
         // REMOVE HARDCODED
         
-        // CHANGED FOR ALERT!
-       //[button setTitleEdgeInsets:UIEdgeInsetsMake(0, button.imageView.image.size.width, 0, 0)];
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(0, button.imageView.image.size.width -10.0, 0, 0)];
     
     } else {
-       
-        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        // REMOVE HARDCODED
+        if ([@"center" caseInsensitiveCompare:textAlign] == NSOrderedSame ) {
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        } else if ([@"right" caseInsensitiveCompare:textAlign] == NSOrderedSame ) {
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        } else {
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        }
         
         // CHANGED FOR ALERT!
-        //[button setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(0, textOffset, 0, 0)];
     }
 
     if (bgImage) {
