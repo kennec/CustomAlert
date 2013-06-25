@@ -45,7 +45,7 @@
     // SET ALERT DATA VIA PLIST
     // FIX SORT TO USE BUTTON TAG INDEX
     // NOT ALPHABETICAL USING SPACES TO CREATE BUTTON ORDER
-    self.alertDictionary = [METPlist loadData:[NSString stringWithFormat:@"alert_multipart_audio.plist"]];
+    self.alertDictionary = [METPlist loadData:[NSString stringWithFormat:@"alert_languages.plist"]];
     self.keys = [self.alertDictionary allKeys];
     self.keys = [self.keys sortedArrayUsingSelector: @selector (compare:)];
     // END CUSTOM ALERT IMPLEMENTATION
