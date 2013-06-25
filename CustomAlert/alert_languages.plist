@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Screen Background Color</key>
+	<string>black</string>
+	<key>Screen Background Alpha</key>
+	<real>0.75</real>
+	<key>Alert Background Image</key>
+	<string>prompt-box.png</string>
+	<key>Alert Height</key>
+	<integer>10</integer>
+	<key>Alert Width</key>
+	<real>260</real>
+	<key>Text Width</key>
+	<real>230</real>
+	<key>Text To Button Offest</key>
+	<integer>0</integer>
+	<key>Button Offest</key>
+	<real>28</real>
+	<key>Button Width</key>
+	<integer>200</integer>
+	<key>Title</key>
+	<string>This object only has content in English. 
+
+Would you like to continue?</string>
+	<key>Title Font Name</key>
+	<string>HelveticaNeue-Bold</string>
+	<key>Title Font Size</key>
+	<integer>18</integer>
+	<key>Buttons</key>
+	<dict>
+		<key> Continue</key>
+		<dict>
+			<key>Name</key>
+			<string>Yes</string>
+			<key>Background Image</key>
+			<string>prompt-button-green.png</string>
+			<key>Highlight Image</key>
+			<string>prompt-button-green-hi.png</string>
+			<key>Button Tag</key>
+			<string>1001</string>
+		</dict>
+		<key>Cancel</key>
+		<dict>
+			<key>Name</key>
+			<string>No</string>
+			<key>Background Image</key>
+			<string>prompt-button-grey.png</string>
+			<key>Highlight Image</key>
+			<string>prompt-button-grey-hi.png</string>
+			<key>Button Tag</key>
+			<string>1000</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
